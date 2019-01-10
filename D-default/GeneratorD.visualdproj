@@ -1,0 +1,14 @@
+<DProject>
+ <ProjectGuid>9948f780-5cb7-4d96-b025-ef663231ee9d</ProjectGuid>
+ <Config name="Debug">
+  <subsystem>2</subsystem>
+  <libfiles>ole32.lib kernel32.lib user32.lib comctl32.lib comdlg32.lib</libfiles>
+ </Config>
+ <Config name="Release">
+  <subsystem>2</subsystem>
+  <libfiles>ole32.lib kernel32.lib user32.lib comctl32.lib comdlg32.lib</libfiles>
+ </Config>
+ <Folder name="GeneratorD">
+  <File path="winmain.d" />
+ </Folder>
+</DProject>

@@ -1,0 +1,12 @@
+﻿{
+	"name": "uminimal",
+	"description": "Minimal demonstration of usage of sciter-dport to create an universal Sciter window (the same source code for the three supported platforms: Windows, Linux GTX and Mac OSX)",
+	"authors": ["midi"],
+	
+	"dependencies": {
+		"sciter-dport": {
+			"version": "~master",
+			"path": "../../"
+		}
+	}
+}

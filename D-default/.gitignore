@@ -1,0 +1,23 @@
+archive.d
+archive.cpp
+
+#IDE Garbage
+/Debug/*
+/Release/*
+!/Debug/sciter32.dll
+!/Release/sciter32.dll
+*.o
+*.obj
+*.suo
+.vs
+ipch/
+*.sdf
+*.opensdf
+*.aps
+*.db
+
+#DUB things
+.dub
+docs.json
+__dummy.html
+

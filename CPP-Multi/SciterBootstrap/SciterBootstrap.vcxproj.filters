@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="SciterSharpCPP">
+      <UniqueIdentifier>{c2ae9d6b-55a1-4355-acbc-7d887e0f254e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Stuff">
+      <UniqueIdentifier>{27612fd0-2f4e-443f-8dca-e111ef07d766}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{b734d400-7541-49d0-85dc-2963e9907a90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scripts">
+      <UniqueIdentifier>{41d31430-f1c1-46f8-9cd9-fa1a18b32a8d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="rc\small.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="rc\SciterBootstrap.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="rc\SciterBootstrap.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ProgramWIN.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\App.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SciterSharpCPP\SciterWindow.cpp">
+      <Filter>SciterSharpCPP</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SampleBehavior.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Window.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Host.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BaseHost.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SciterSharpCPP\SciterArchive.hpp">
+      <Filter>SciterSharpCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SciterSharpCPP\SciterElement.hpp">
+      <Filter>SciterSharpCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SciterSharpCPP\SciterEventHandler.hpp">
+      <Filter>SciterSharpCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SciterSharpCPP\SciterHost.hpp">
+      <Filter>SciterSharpCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SciterSharpCPP\SciterWindow.hpp">
+      <Filter>SciterSharpCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Resource.h">
+      <Filter>Header Files\Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="src\stdafx.h">
+      <Filter>Header Files\Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="src\targetver.h">
+      <Filter>Header Files\Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="src\App.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Consts.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SciterDebugOutputHandler.hpp">
+      <Filter>SciterSharpCPP</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\ProgramOSX.mm">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="src\App.mm">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="src\SciterSharpCPP\SciterWindow.mm">
+      <Filter>SciterSharpCPP</Filter>
+    </None>
+    <None Include="res\index.html">
+      <Filter>res</Filter>
+    </None>
+    <None Include="sciter.dll" />
+    <None Include="scripts\packOSX.sh">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="scripts\packWindows.bat">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="scripts\packfolder">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="scripts\packfolder.exe">
+      <Filter>scripts</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\SciterSharpCPP\README.txt">
+      <Filter>SciterSharpCPP</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{002A2DE9-8BB6-484D-9802-7E4AD4084715}") = "SciterBootstrap", "SciterBootstrap.visualdproj", "{7AC40C40-DBCA-40EC-BF2A-2BADCF415EC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AC40C40-DBCA-40EC-BF2A-2BADCF415EC0}.Debug|x86.ActiveCfg = Debug|Win32
+		{7AC40C40-DBCA-40EC-BF2A-2BADCF415EC0}.Debug|x86.Build.0 = Debug|Win32
+		{7AC40C40-DBCA-40EC-BF2A-2BADCF415EC0}.Release|x86.ActiveCfg = Release|Win32
+		{7AC40C40-DBCA-40EC-BF2A-2BADCF415EC0}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

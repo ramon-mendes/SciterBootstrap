@@ -1,0 +1,50 @@
+<html>
+<style>
+	body { flow: horizontal; border-spacing: 10px; }
+
+	video { size: 640px 480px; outline: solid 1px; behavior: camera video; background: green; margin: 10px 0; }
+
+	#snapshoot { size: 640px 480px; outline: solid 1px; margin: 10px 0; }
+</style>
+
+<script type="text/tiscript">
+	$(#btn-start).on("click", function() {
+		var video = $(video);
+		var res = video.start_device();
+
+		if(res)
+		{
+			$(#btn-start).state.disabled = true;
+			$(#btn-snap).state.disabled = false;
+
+			/*self.timer(100, function() {
+				self#fps.text = video.get_FPS();
+				return true;
+			});*/
+		} else {
+			view.msgbox(#alert, "Could not open camera device.");
+		}
+	});
+
+	$(#btn-snap).on("click", function() {
+		var img = new Image(640, 480, $(video));
+		view.clipboard(#put, img);
+
+		$(#snapshoot).paintForeground = function(gfx) {
+			gfx.blendImage(img, 0, 0);
+		};
+		$(#snapshoot).refresh();
+	});
+</script>
+
+<body>
+	<div>
+		Click to start capturing video stream from the first camera device: <button #btn-start>Start</button>
+		<video />
+	</div>
+	<div>
+		<button #btn-snap>Take Snapshoot</button>
+		<div #snapshoot />
+	</div>
+</body>
+</html>

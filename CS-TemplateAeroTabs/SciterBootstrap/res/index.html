@@ -1,0 +1,44 @@
+<html>
+<head>
+	<style>
+		@import url(AeroTabs/AeroTabs.css);
+
+		html { font-family: system; background: transparent; overflow: hidden; }
+		body { margin: 0; }
+
+		.aero-tab { margin-bottom: 6px; }
+		#main { background: white; height: *; padding: 1px 12px; }
+	</style>
+
+	<script type="text/tiscript">
+		include "AeroTabs/AeroTabs.tis";
+
+		self.ready = function() {
+			var el_aerotabs = $(.aero-tab);
+			el_aerotabs.on("ontabchange", function(evt) {
+				$(h3).text = "Showing tab: " + evt.data;
+			});
+
+			el_aerotabs.setupTabData({
+				"Second": [
+					{ cmd: "compile", tip: "Compile output", icon: "AeroTabs/log3.png" },
+					{ cmd: "find", tip: "Find/Replace", icon: "AeroTabs/search.png" }
+				],
+				"First": [
+					{ cmd: "mapinfo", tip: "Map Info", icon: "AeroTabs/scroll.png" },
+					{ cmd: "logoutput", tip: "Log output", icon: "AeroTabs/log4.png" },
+					{ cmd: "build", tip: "Build/Compile", icon: "AeroTabs/build.png" }
+				]
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<div .aero-tab coloring="StyleYellow" />
+
+	<div #main>
+		<h3 />
+	</div>
+</body>
+</html>

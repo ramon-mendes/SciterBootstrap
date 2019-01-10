@@ -1,0 +1,27 @@
+# Temporary things
+READMElinux.md
+
+
+
+# Garbage
+.vs
+*.exe
+sciter32.dll
+
+/source_trash
+/include-reference
+/include-referenceOLD
+
+sciter-dport.lib
+libsciter-dport.a
+
+docs.json
+__dummy.html
+*.o
+*.obj
+
+
+
+#DUB things
+.dub
+dub.selections.json

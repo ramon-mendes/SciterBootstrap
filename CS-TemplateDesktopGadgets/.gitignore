@@ -1,0 +1,15 @@
+
+
+#IDE Garbage
+*/bin/Debug/*
+*/bin/Release/*
+!*/bin/Debug/sciter32.dll
+!*/bin/Debug/sciter64.dll
+!*/bin/Release/sciter32.dll
+!*/bin/Release/sciter64.dll
+!*/bin/Debug/Hook
+!*/bin/Release/Hook
+packages/
+obj/
+.vs/
+*.sdf

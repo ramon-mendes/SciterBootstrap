@@ -1,0 +1,24 @@
+{
+	"name": "sciter-dport",
+	"license": "GPL-3.0",
+	"description": "Port of Sciter headers for D.",
+	"copyright": "Copyright © 2015, midi",
+	"authors": ["midi"],
+	
+	"excludedSourceFiles": ["source/winkit/*"],
+	"importPaths": ["source", "source/gtkkit"],
+	
+	"configurations": [
+		{
+			"name": "linux-library",
+			"platforms": ["linux"],
+			"libs": ["dl"]
+		},
+		
+		{
+			"name": "windows-library",
+			"platforms": ["windows"],
+			"libs": ["$PACKAGE_DIR/sciter32-import-lib"],
+		}
+	]
+}

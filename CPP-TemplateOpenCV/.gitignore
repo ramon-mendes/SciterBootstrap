@@ -1,0 +1,22 @@
+archive.d
+archive.cpp
+
+
+#IDE Garbage
+Debug/
+Release/
+*.o
+*.obj
+*.suo
+.vs
+ipch/
+*.sdf
+*.opensdf
+*.aps
+*.db
+
+
+#DUB things
+.dub
+docs.json
+__dummy.html

@@ -1,0 +1,76 @@
+<html>
+<head>
+	<style>
+		html { background: transparent; }/* removes background from Sciter page */
+
+		body { margin: 1px 6px 6px 6px; }
+		:expanded body { margin: 8px 10px 10px 10px; }/* :expanded flag set when window is maximized, see Window.cs */
+
+		@media os=="Windows-10"
+		{
+			body { margin-top: 0px; }
+		}
+
+		#area-glass
+		{
+			height: 33px;
+		}
+		button
+		{
+			padding: 2px 11px;
+			background: linear-gradient(top, red, blue);
+			color: white;
+			context-menu: selector(menu);
+		}
+
+		menu { display: none; width: 150px; }
+		
+		#area-opaque
+		{
+			size: *;
+			border: solid 1px black;
+			border-radius: 4px;
+			background: white;
+
+			flow: vertical;
+			vertical-align: middle;
+			horizontal-align: center;
+		}
+		#area-opaque:checked { background: none; }
+	</style>
+
+	<script type="text/tiscript">
+		$(#btn-menu).onClick = function() {
+			this.popup($(menu), popupAttachment(1, 7));
+		};
+
+		$(#btn-hidebg).onClick = function() {
+			$(#area-opaque).state.checked = !$(#area-opaque).state.checked;
+		};
+
+		function popupAttachment(anchorPoint, popupPoint)
+		{
+			return (popupPoint << 16) | anchorPoint;
+		}
+	</script>
+</head>
+
+<body>
+	<menu .context>
+		<li>Help</li>
+		<li>About</li>
+		<li>Forum</li>
+		<hr />
+		<li>Exit</li>
+	</menu>
+
+	<caption #area-glass>
+		<button #btn-menu>NC Menu &nbsp;&#x25BC;</button>
+	</caption>
+
+	<div #area-opaque>
+		<img src="load_anim.png" /><br /><br />
+		<button #btn-hidebg>Toggle background</button>
+	</div>
+</body>
+</html>

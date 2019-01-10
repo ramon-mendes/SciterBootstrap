@@ -1,0 +1,4 @@
+#include "winres.h"
+100               ICON                    "icon-main.ico"
+101               ICON                    "icon-file.ico"
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "app.manifest"

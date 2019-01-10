@@ -1,0 +1,15 @@
+ArchiveResource.cpp
+xcuserdata/
+
+#IDE Garbage
+Debug/
+Release/
+*.o
+*.obj
+*.suo
+.vs
+ipch/
+*.sdf
+*.opensdf
+*.aps
+*.db

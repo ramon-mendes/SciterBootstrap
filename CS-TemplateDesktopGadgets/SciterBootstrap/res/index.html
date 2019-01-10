@@ -1,0 +1,52 @@
+<html>
+<head>
+	<style>
+		html { background: transparent; }
+		body
+		{
+			background-image: url('frame.png');
+			background-repeat: expand;
+			background-position: 6 6 6 6; /*top right bottom left offsets*/
+			padding: *;
+		}
+
+		h3 { font-family: system; color: white; font-weight: normal; }
+
+		.ninja { flow: stack; margin-top: 40px; }
+		.shuriken-left { margin-left: 238px; margin-top: 94px; }
+		.shuriken-right { margin-left: 363px; margin-top: 94px; }
+
+		div:hover .shuriken-left
+		{
+			transform: rotate(-3000deg);
+			transition: transform(cubic-in-out,4s,none);
+		}
+		div:hover .shuriken-right
+		{
+			transform: rotate(3000deg);
+			transition: transform(cubic-in-out,4s,none);
+		}
+	</style>
+
+	<script type="text/tiscript">
+		self.on("mousedown", function(evt) {
+			view.Host_EmulateMoveWnd(self);
+			return true;
+		});
+
+		self.onKey = function(evt) {
+			if(evt.keyCode==Event.VK_ESCAPE)
+				view.close();
+		};
+	</script>
+</head>
+
+<body>
+	<h3>This is desktop GADGET: it will always stay visible in desktop even when all windows are minimized! &nbsp;<small>(Press ESC to exit)</small></h3>
+	<div .ninja>
+		<img src="shuriken.png" .shuriken.shuriken-left />
+		<img src="header-ninjas.png" />
+		<img src="shuriken.png" .shuriken.shuriken-right />
+	</div>
+</body>
+</html>

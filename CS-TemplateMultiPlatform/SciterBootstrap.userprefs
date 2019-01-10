@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{77C8C5E7-4AB3-49FF-B8CD-4EE0B850576A}|Default">
+  <MonoDevelop.Ide.ItemProperties.SciterBootstrapOSX PreferredExecutionTarget="Test1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SciterBootstrap/Src/Host.cs">
+    <Files>
+      <File FileName="SciterBootstrap/Src/Host.cs" Line="1" Column="7" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x64" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

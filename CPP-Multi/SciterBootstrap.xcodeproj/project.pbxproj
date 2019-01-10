@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		62D4046C1EB0165500E4667A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62D4046B1EB0165500E4667A /* Assets.xcassets */; };
+		62D404771EB0186800E4667A /* sciter-osx-64.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D404761EB0186800E4667A /* sciter-osx-64.dylib */; };
+		62D404791EB0189000E4667A /* sciter-osx-64.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 62D404761EB0186800E4667A /* sciter-osx-64.dylib */; };
+		62D9B9C01EBCB7BD00D5C75B /* Host.mm in Sources */ = {isa = PBXBuildFile; fileRef = 62D9B9BF1EBCB7BD00D5C75B /* Host.mm */; };
+		62E741011F19AA6400474810 /* SampleBehavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62E741001F19AA6400474810 /* SampleBehavior.cpp */; };
+		62EB0F461EB02CCF00D62E47 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 62EB0F451EB02CCF00D62E47 /* res */; };
+		62EB0F591EB02D7500D62E47 /* ProgramOSX.mm in Sources */ = {isa = PBXBuildFile; fileRef = 62EB0F4D1EB02D7500D62E47 /* ProgramOSX.mm */; };
+		62EB0F931EB02DA100D62E47 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62EB0F921EB02DA100D62E47 /* MainMenu.xib */; };
+		62F1E45C1EB038E40055A266 /* App.mm in Sources */ = {isa = PBXBuildFile; fileRef = 62EB0F491EB02D7500D62E47 /* App.mm */; };
+		62F1E4601EB0489F0055A266 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62F1E45F1EB0489F0055A266 /* Cocoa.framework */; };
+		62F1E46C1EB195D90055A266 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 62F1E4641EB195D90055A266 /* README.txt */; };
+		62F1E46D1EB195D90055A266 /* SciterWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62F1E4691EB195D90055A266 /* SciterWindow.cpp */; };
+		62F1E46E1EB195D90055A266 /* SciterWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 62F1E46B1EB195D90055A266 /* SciterWindow.mm */; };
+		62F1E4701EB195F90055A266 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62F1E46F1EB195F90055A266 /* App.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		62D404781EB0188000E4667A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				62D404791EB0189000E4667A /* sciter-osx-64.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		62D4045F1EB0165500E4667A /* SciterBootstrap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SciterBootstrap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		62D4046B1EB0165500E4667A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		62D404701EB0165500E4667A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62D404761EB0186800E4667A /* sciter-osx-64.dylib */ = {isa = PBXFileReference; explicitFileType = compiled; path = "sciter-osx-64.dylib"; sourceTree = "<group>"; };
+		62D9B9BF1EBCB7BD00D5C75B /* Host.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Host.mm; sourceTree = "<group>"; };
+		62E741001F19AA6400474810 /* SampleBehavior.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SampleBehavior.cpp; sourceTree = "<group>"; };
+		62EB0F451EB02CCF00D62E47 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		62EB0F481EB02D7500D62E47 /* App.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = App.hpp; sourceTree = "<group>"; };
+		62EB0F491EB02D7500D62E47 /* App.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = App.mm; sourceTree = "<group>"; };
+		62EB0F4A1EB02D7500D62E47 /* BaseHost.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseHost.hpp; sourceTree = "<group>"; };
+		62EB0F4B1EB02D7500D62E47 /* Consts.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Consts.hpp; sourceTree = "<group>"; };
+		62EB0F4C1EB02D7500D62E47 /* Host.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Host.hpp; sourceTree = "<group>"; };
+		62EB0F4D1EB02D7500D62E47 /* ProgramOSX.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProgramOSX.mm; sourceTree = "<group>"; };
+		62EB0F571EB02D7500D62E47 /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
+		62EB0F5E1EB02D8500D62E47 /* aux-asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "aux-asset.h"; sourceTree = "<group>"; };
+		62EB0F5F1EB02D8500D62E47 /* aux-cvt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "aux-cvt.h"; sourceTree = "<group>"; };
+		62EB0F601EB02D8500D62E47 /* aux-platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "aux-platform.h"; sourceTree = "<group>"; };
+		62EB0F611EB02D8500D62E47 /* aux-slice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "aux-slice.h"; sourceTree = "<group>"; };
+		62EB0F6F1EB02D8500D62E47 /* sciter-x-api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x-api.h"; sourceTree = "<group>"; };
+		62EB0F701EB02D8500D62E47 /* sciter-x-behavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x-behavior.h"; sourceTree = "<group>"; };
+		62EB0F711EB02D8500D62E47 /* sciter-x-debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x-debug.h"; sourceTree = "<group>"; };
+		62EB0F721EB02D8500D62E47 /* sciter-x-def.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x-def.h"; sourceTree = "<group>"; };
+		62EB0F731EB02D8500D62E47 /* sciter-x-dom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x-dom.h"; sourceTree = "<group>"; };
+		62EB0F741EB02D8500D62E47 /* sciter-x-dom.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "sciter-x-dom.hpp"; sourceTree = "<group>"; };
+		62EB0F751EB02D8500D62E47 /* sciter-x-graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x-graphics.h"; sourceTree = "<group>"; };
+		62EB0F761EB02D8500D62E47 /* sciter-x-graphics.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "sciter-x-graphics.hpp"; sourceTree = "<group>"; };
+		62EB0F771EB02D8500D62E47 /* sciter-x-host-callback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x-host-callback.h"; sourceTree = "<group>"; };
+		62EB0F781EB02D8500D62E47 /* sciter-x-lite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "sciter-x-lite.hpp"; sourceTree = "<group>"; };
+		62EB0F791EB02D8500D62E47 /* sciter-x-msg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x-msg.h"; sourceTree = "<group>"; };
+		62EB0F7A1EB02D8500D62E47 /* sciter-x-request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x-request.h"; sourceTree = "<group>"; };
+		62EB0F7B1EB02D8500D62E47 /* sciter-x-request.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "sciter-x-request.hpp"; sourceTree = "<group>"; };
+		62EB0F7C1EB02D8500D62E47 /* sciter-x-script.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x-script.h"; sourceTree = "<group>"; };
+		62EB0F7D1EB02D8500D62E47 /* sciter-x-threads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x-threads.h"; sourceTree = "<group>"; };
+		62EB0F7E1EB02D8500D62E47 /* sciter-x-types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x-types.h"; sourceTree = "<group>"; };
+		62EB0F7F1EB02D8500D62E47 /* sciter-x-value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x-value.h"; sourceTree = "<group>"; };
+		62EB0F801EB02D8500D62E47 /* sciter-x-video-api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x-video-api.h"; sourceTree = "<group>"; };
+		62EB0F811EB02D8500D62E47 /* sciter-x-window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "sciter-x-window.hpp"; sourceTree = "<group>"; };
+		62EB0F821EB02D8500D62E47 /* sciter-x.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sciter-x.h"; sourceTree = "<group>"; };
+		62EB0F831EB02D8500D62E47 /* tiscript-streams.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "tiscript-streams.hpp"; sourceTree = "<group>"; };
+		62EB0F841EB02D8500D62E47 /* tiscript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tiscript.h; sourceTree = "<group>"; };
+		62EB0F851EB02D8500D62E47 /* tiscript.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tiscript.hpp; sourceTree = "<group>"; };
+		62EB0F861EB02D8500D62E47 /* value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = value.h; sourceTree = "<group>"; };
+		62EB0F871EB02D8500D62E47 /* value.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = value.hpp; sourceTree = "<group>"; };
+		62EB0F921EB02DA100D62E47 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		62F1E45F1EB0489F0055A266 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		62F1E4641EB195D90055A266 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		62F1E4651EB195D90055A266 /* SciterArchive.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SciterArchive.hpp; sourceTree = "<group>"; };
+		62F1E4661EB195D90055A266 /* SciterElement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SciterElement.hpp; sourceTree = "<group>"; };
+		62F1E4671EB195D90055A266 /* SciterEventHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SciterEventHandler.hpp; sourceTree = "<group>"; };
+		62F1E4681EB195D90055A266 /* SciterHost.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SciterHost.hpp; sourceTree = "<group>"; };
+		62F1E4691EB195D90055A266 /* SciterWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SciterWindow.cpp; sourceTree = "<group>"; };
+		62F1E46A1EB195D90055A266 /* SciterWindow.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SciterWindow.hpp; sourceTree = "<group>"; };
+		62F1E46B1EB195D90055A266 /* SciterWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SciterWindow.mm; sourceTree = "<group>"; };
+		62F1E46F1EB195F90055A266 /* App.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = App.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		62D4045C1EB0165400E4667A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62F1E4601EB0489F0055A266 /* Cocoa.framework in Frameworks */,
+				62D404771EB0186800E4667A /* sciter-osx-64.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		62D404561EB0165400E4667A = {
+			isa = PBXGroup;
+			children = (
+				62D404761EB0186800E4667A /* sciter-osx-64.dylib */,
+				62D404611EB0165500E4667A /* SciterBootstrap */,
+				62D404601EB0165500E4667A /* Products */,
+				62F1E45E1EB0489F0055A266 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		62D404601EB0165500E4667A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				62D4045F1EB0165500E4667A /* SciterBootstrap.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		62D404611EB0165500E4667A /* SciterBootstrap */ = {
+			isa = PBXGroup;
+			children = (
+				62EB0F451EB02CCF00D62E47 /* res */,
+				62EB0F5D1EB02D8500D62E47 /* include */,
+				62EB0F471EB02D7500D62E47 /* src */,
+				62EB0F921EB02DA100D62E47 /* MainMenu.xib */,
+				62D4046B1EB0165500E4667A /* Assets.xcassets */,
+				62D404701EB0165500E4667A /* Info.plist */,
+			);
+			path = SciterBootstrap;
+			sourceTree = "<group>";
+		};
+		62EB0F471EB02D7500D62E47 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				62F1E4631EB195D90055A266 /* SciterSharpCPP */,
+				62F1E46F1EB195F90055A266 /* App.cpp */,
+				62EB0F481EB02D7500D62E47 /* App.hpp */,
+				62EB0F491EB02D7500D62E47 /* App.mm */,
+				62EB0F4A1EB02D7500D62E47 /* BaseHost.hpp */,
+				62EB0F4B1EB02D7500D62E47 /* Consts.hpp */,
+				62EB0F4C1EB02D7500D62E47 /* Host.hpp */,
+				62D9B9BF1EBCB7BD00D5C75B /* Host.mm */,
+				62EB0F4D1EB02D7500D62E47 /* ProgramOSX.mm */,
+				62E741001F19AA6400474810 /* SampleBehavior.cpp */,
+				62EB0F571EB02D7500D62E47 /* Window.hpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		62EB0F5D1EB02D8500D62E47 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				62EB0F5E1EB02D8500D62E47 /* aux-asset.h */,
+				62EB0F5F1EB02D8500D62E47 /* aux-cvt.h */,
+				62EB0F601EB02D8500D62E47 /* aux-platform.h */,
+				62EB0F611EB02D8500D62E47 /* aux-slice.h */,
+				62EB0F6F1EB02D8500D62E47 /* sciter-x-api.h */,
+				62EB0F701EB02D8500D62E47 /* sciter-x-behavior.h */,
+				62EB0F711EB02D8500D62E47 /* sciter-x-debug.h */,
+				62EB0F721EB02D8500D62E47 /* sciter-x-def.h */,
+				62EB0F731EB02D8500D62E47 /* sciter-x-dom.h */,
+				62EB0F741EB02D8500D62E47 /* sciter-x-dom.hpp */,
+				62EB0F751EB02D8500D62E47 /* sciter-x-graphics.h */,
+				62EB0F761EB02D8500D62E47 /* sciter-x-graphics.hpp */,
+				62EB0F771EB02D8500D62E47 /* sciter-x-host-callback.h */,
+				62EB0F781EB02D8500D62E47 /* sciter-x-lite.hpp */,
+				62EB0F791EB02D8500D62E47 /* sciter-x-msg.h */,
+				62EB0F7A1EB02D8500D62E47 /* sciter-x-request.h */,
+				62EB0F7B1EB02D8500D62E47 /* sciter-x-request.hpp */,
+				62EB0F7C1EB02D8500D62E47 /* sciter-x-script.h */,
+				62EB0F7D1EB02D8500D62E47 /* sciter-x-threads.h */,
+				62EB0F7E1EB02D8500D62E47 /* sciter-x-types.h */,
+				62EB0F7F1EB02D8500D62E47 /* sciter-x-value.h */,
+				62EB0F801EB02D8500D62E47 /* sciter-x-video-api.h */,
+				62EB0F811EB02D8500D62E47 /* sciter-x-window.hpp */,
+				62EB0F821EB02D8500D62E47 /* sciter-x.h */,
+				62EB0F831EB02D8500D62E47 /* tiscript-streams.hpp */,
+				62EB0F841EB02D8500D62E47 /* tiscript.h */,
+				62EB0F851EB02D8500D62E47 /* tiscript.hpp */,
+				62EB0F861EB02D8500D62E47 /* value.h */,
+				62EB0F871EB02D8500D62E47 /* value.hpp */,
+			);
+			name = include;
+			path = "vendor/sciter-sdk/include";
+			sourceTree = "<group>";
+		};
+		62F1E45E1EB0489F0055A266 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62F1E45F1EB0489F0055A266 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		62F1E4631EB195D90055A266 /* SciterSharpCPP */ = {
+			isa = PBXGroup;
+			children = (
+				62F1E4641EB195D90055A266 /* README.txt */,
+				62F1E4651EB195D90055A266 /* SciterArchive.hpp */,
+				62F1E4661EB195D90055A266 /* SciterElement.hpp */,
+				62F1E4671EB195D90055A266 /* SciterEventHandler.hpp */,
+				62F1E4681EB195D90055A266 /* SciterHost.hpp */,
+				62F1E4691EB195D90055A266 /* SciterWindow.cpp */,
+				62F1E46A1EB195D90055A266 /* SciterWindow.hpp */,
+				62F1E46B1EB195D90055A266 /* SciterWindow.mm */,
+			);
+			path = SciterSharpCPP;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		62D4045E1EB0165400E4667A /* SciterBootstrap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62D404731EB0165500E4667A /* Build configuration list for PBXNativeTarget "SciterBootstrap" */;
+			buildPhases = (
+				62EB0F941EB02E2500D62E47 /* ShellScript */,
+				62D404781EB0188000E4667A /* CopyFiles */,
+				62D4045B1EB0165400E4667A /* Sources */,
+				62D4045C1EB0165400E4667A /* Frameworks */,
+				62D4045D1EB0165400E4667A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SciterBootstrap;
+			productName = SciterBootstrap;
+			productReference = 62D4045F1EB0165500E4667A /* SciterBootstrap.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		62D404571EB0165400E4667A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = MyOrganization;
+				TargetAttributes = {
+					62D4045E1EB0165400E4667A = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 62D4045A1EB0165400E4667A /* Build configuration list for PBXProject "SciterBootstrap" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 62D404561EB0165400E4667A;
+			productRefGroup = 62D404601EB0165500E4667A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				62D4045E1EB0165400E4667A /* SciterBootstrap */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		62D4045D1EB0165400E4667A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62D4046C1EB0165500E4667A /* Assets.xcassets in Resources */,
+				62EB0F461EB02CCF00D62E47 /* res in Resources */,
+				62F1E46C1EB195D90055A266 /* README.txt in Resources */,
+				62EB0F931EB02DA100D62E47 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		62EB0F941EB02E2500D62E47 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/bin/sh SciterBootstrap/scripts/packOSX.sh";
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		62D4045B1EB0165400E4667A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62D9B9C01EBCB7BD00D5C75B /* Host.mm in Sources */,
+				62F1E46D1EB195D90055A266 /* SciterWindow.cpp in Sources */,
+				62F1E46E1EB195D90055A266 /* SciterWindow.mm in Sources */,
+				62F1E45C1EB038E40055A266 /* App.mm in Sources */,
+				62EB0F591EB02D7500D62E47 /* ProgramOSX.mm in Sources */,
+				62F1E4701EB195F90055A266 /* App.cpp in Sources */,
+				62E741011F19AA6400474810 /* SampleBehavior.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		62D404711EB0165500E4667A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		62D404721EB0165500E4667A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		62D404741EB0165500E4667A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SciterBootstrap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-v";
+				PRODUCT_BUNDLE_IDENTIFIER = MyOrganization.SciterBootstrap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		62D404751EB0165500E4667A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SciterBootstrap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-v";
+				PRODUCT_BUNDLE_IDENTIFIER = MyOrganization.SciterBootstrap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		62D4045A1EB0165400E4667A /* Build configuration list for PBXProject "SciterBootstrap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62D404711EB0165500E4667A /* Debug */,
+				62D404721EB0165500E4667A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62D404731EB0165500E4667A /* Build configuration list for PBXNativeTarget "SciterBootstrap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62D404741EB0165500E4667A /* Debug */,
+				62D404751EB0165500E4667A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 62D404571EB0165400E4667A /* Project object */;
+}

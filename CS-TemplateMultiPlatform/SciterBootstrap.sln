@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciterBootstrapWindows", "SciterBootstrap\SciterBootstrapWindows.csproj", "{FABEBB54-7E6E-4DCD-A4A3-D713EA38731B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciterBootstrapOSX", "SciterBootstrap\SciterBootstrapOSX.csproj", "{77C8C5E7-4AB3-49FF-B8CD-4EE0B850576A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciterBootstrapGTK", "SciterBootstrap\SciterBootstrapGTK.csproj", "{95EE3B89-3300-4482-95A3-DC42EC8B3676}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{83EE6783-C6AA-421C-B18B-460D2AA0CA7F}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		OmniCode-Settings.json = OmniCode-Settings.json
+		SciterBootstrap\scripts\packOSX.sh = SciterBootstrap\scripts\packOSX.sh
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FABEBB54-7E6E-4DCD-A4A3-D713EA38731B}.Debug|x64.ActiveCfg = Debug|x64
+		{FABEBB54-7E6E-4DCD-A4A3-D713EA38731B}.Debug|x64.Build.0 = Debug|x64
+		{FABEBB54-7E6E-4DCD-A4A3-D713EA38731B}.Debug|x86.ActiveCfg = Debug|x86
+		{FABEBB54-7E6E-4DCD-A4A3-D713EA38731B}.Debug|x86.Build.0 = Debug|x86
+		{FABEBB54-7E6E-4DCD-A4A3-D713EA38731B}.Release|x64.ActiveCfg = Release|x64
+		{FABEBB54-7E6E-4DCD-A4A3-D713EA38731B}.Release|x64.Build.0 = Release|x64
+		{FABEBB54-7E6E-4DCD-A4A3-D713EA38731B}.Release|x86.ActiveCfg = Release|x86
+		{FABEBB54-7E6E-4DCD-A4A3-D713EA38731B}.Release|x86.Build.0 = Release|x86
+		{77C8C5E7-4AB3-49FF-B8CD-4EE0B850576A}.Debug|x64.ActiveCfg = Debug|x64
+		{77C8C5E7-4AB3-49FF-B8CD-4EE0B850576A}.Debug|x64.Build.0 = Debug|x64
+		{77C8C5E7-4AB3-49FF-B8CD-4EE0B850576A}.Debug|x86.ActiveCfg = Debug|x64
+		{77C8C5E7-4AB3-49FF-B8CD-4EE0B850576A}.Release|x64.ActiveCfg = Release|x64
+		{77C8C5E7-4AB3-49FF-B8CD-4EE0B850576A}.Release|x64.Build.0 = Release|x64
+		{77C8C5E7-4AB3-49FF-B8CD-4EE0B850576A}.Release|x86.ActiveCfg = Release|x64
+		{95EE3B89-3300-4482-95A3-DC42EC8B3676}.Debug|x64.ActiveCfg = Debug|x64
+		{95EE3B89-3300-4482-95A3-DC42EC8B3676}.Debug|x64.Build.0 = Debug|x64
+		{95EE3B89-3300-4482-95A3-DC42EC8B3676}.Debug|x86.ActiveCfg = Debug|x64
+		{95EE3B89-3300-4482-95A3-DC42EC8B3676}.Release|x64.ActiveCfg = Release|x64
+		{95EE3B89-3300-4482-95A3-DC42EC8B3676}.Release|x64.Build.0 = Release|x64
+		{95EE3B89-3300-4482-95A3-DC42EC8B3676}.Release|x86.ActiveCfg = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5DC555E-A237-4F94-B075-364E380ECA38}
+	EndGlobalSection
+EndGlobal
