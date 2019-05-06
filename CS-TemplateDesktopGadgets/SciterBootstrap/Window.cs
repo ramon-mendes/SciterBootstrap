@@ -24,14 +24,16 @@ namespace SciterBootstrap
 		{
 			if(msg==WM_TASKBAR_CREATED)
 			{
-				Program.RunHooker();
+				Program.HookerInstance.SetMessageHook();
 				return true;
 			}
 
 			switch(msg)
 			{
 				case WM_DESKTOP_CHANGED:
-					if(lParam.ToInt32()!=0)
+					Debug.WriteLine($"{wParam.ToInt64()} {lParam.ToInt64()}");
+
+					if(wParam.ToInt32()==0)
 					{
 						SetWindowPos(_hwnd, new IntPtr((int) SetWindowPosWindow.HWND_BOTTOM), 0, 0, 0, 0,
 							SetWindowPosFlags.SWP_NOSIZE | SetWindowPosFlags.SWP_NOMOVE);

@@ -1,15 +1,20 @@
+ArchiveResource.cs
 
-
-#IDE Garbage
-*/bin/Debug/*
-*/bin/Release/*
-!*/bin/Debug/sciter32.dll
-!*/bin/Debug/sciter64.dll
-!*/bin/Release/sciter32.dll
-!*/bin/Release/sciter64.dll
-!*/bin/Debug/Hook
-!*/bin/Release/Hook
-packages/
+# Garbage
+.DS_Store
+**/Debug
+**/Release
 obj/
+packages/
 .vs/
 *.sdf
+*.db
+*.pdb
+*.idb
+*.tlog
+*.obj
+*.exp
+*.lib
+*.ilk
+*.pch
+*.log
