@@ -30,9 +30,10 @@ namespace SciterBootstrap
 	class HostEvh : SciterEventHandler
 	{
 		// A dynamic script call handler. Any call in TIScript to function 'view.Host_HelloWorld()' with invoke this method
-		// Notice that signature of these handlers is always the same
-		// (Hint: install OmniCode snippets which adds the 'ssh' snippet to C# editor so you can easily declare 'Siter Handler' methods)
 		// (see: https://github.com/MISoftware/OmniCode-Snippets)
+
+		// Notice: the signature of the Host_HelloWorld() method bellow matches a pattern.
+		// Read more about it here: https://sciter.com/native-c-api-with-scitereventhandler-and-reflection/
 		public bool Host_HelloWorld(SciterElement el, SciterValue[] args, out SciterValue result)
 		{
 			result = new SciterValue("Hello World! (from native side)");

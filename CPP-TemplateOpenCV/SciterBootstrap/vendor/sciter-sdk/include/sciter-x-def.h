@@ -287,10 +287,10 @@ typedef SCN_GRAPHICS_CRITICAL_FAILURE* LPSCN_GRAPHICS_CRITICAL_FAILURE;
 /**Load HTML file.
  *
  * \param[in] hWndSciter \b HWINDOW, Sciter window handle.
- * \param[in] filename \b LPCWSTR, File name of an HTML file.
+ * \param[in] url \b LPCWSTR, either absolute URL of HTML file to load. "file://...", "http://...", "res:***", "this://app/***" or absolute file path.
  * \return \b BOOL, \c TRUE if the text was parsed and loaded successfully, \c FALSE otherwise.
  **/
- BOOL SCAPI     SciterLoadFile(HWINDOW hWndSciter, LPCWSTR filename);
+ BOOL SCAPI     SciterLoadFile(HWINDOW hWndSciter, LPCWSTR url);
 
 /**Load HTML from in memory buffer with base.
  *
@@ -439,6 +439,11 @@ enum SCITER_RT_OPTIONS
    
    SCITER_SET_INIT_SCRIPT = 13,   // hWnd - N/A , value LPCSTR - UTF-8 encoded script source to be loaded into each view before any other script execution.
                                   //                             The engine copies this string inside the call.
+
+   SCITER_SET_MAIN_WINDOW = 14,   //  hWnd, value - TRUE/FALSE - window is main, will destroy all other dependent windows on close
+
+   SCITER_SET_MAX_HTTP_DATA_LENGTH = 15, // hWnd - N/A , value - max request length in megabytes (1024*1024 bytes)
+
 };
 
  BOOL SCAPI SciterSetOption(HWINDOW hWnd, UINT option, UINT_PTR value );
@@ -603,7 +608,7 @@ enum SCITER_CREATE_WINDOW_FLAGS {
    SW_RESIZEABLE = (1 << 2), // has resizeable frame
    SW_TOOL       = (1 << 3), // is tool window
    SW_CONTROLS   = (1 << 4), // has minimize / maximize buttons
-   SW_GLASSY     = (1 << 5), // glassy window ( DwmExtendFrameIntoClientArea on windows )
+   SW_GLASSY     = (1 << 5), // glassy window - supports "Acrylic" on Windows and "Vibrant" on MacOS. 
    SW_ALPHA      = (1 << 6), // transparent window ( e.g. WS_EX_LAYERED on Windows )
    SW_MAIN       = (1 << 7), // main window of the app, will terminate the app on close
    SW_POPUP      = (1 << 8), // the window is created as topmost window.

@@ -66,12 +66,12 @@
     <AOTMode>None</AOTMode>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SciterSharpOSX, Version=2.0.80.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SciterSharpOSX.2.0.80\lib\xamarinmac20\SciterSharpOSX.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.Mac" />
-    <Reference Include="SciterSharpOSX">
-      <HintPath>..\packages\SciterSharpOSX.2.0.73\lib\xamarinmac20\SciterSharpOSX.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -93,8 +93,8 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="res\index.html" />
     <None Include="packages.SciterBootstrapOSX.config" />
+    <None Include="res\index.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Src\App.cs" />

@@ -32,7 +32,14 @@ namespace SciterBootstrap
 
 #if !OSX
 			PInvokeUtils.RunMsgLoop();
+			FinalizeApp();
 #endif
+		}
+
+		public static void FinalizeApp()
+		{
+			GC.Collect();
+			GC.WaitForPendingFinalizers();
 		}
 	}
 }

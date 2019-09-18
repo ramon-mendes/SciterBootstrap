@@ -74,6 +74,7 @@ namespace SciterBootstrap
 		public override void WillTerminate(NSNotification notification)
 		{
 			// Insert code here to tear down your application
+			App.FinalizeApp();
 		}
 	}
 }

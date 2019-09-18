@@ -232,6 +232,7 @@ typedef BOOL SC_CALLBACK SciterBehaviorFactory( LPCSTR, HELEMENT, LPElementEvent
     SCROLL_SOURCE_KEYBOARD,  // SCROLL_PARAMS::reason <- keyCode
     SCROLL_SOURCE_SCROLLBAR, // SCROLL_PARAMS::reason <- SCROLLBAR_PART 
     SCROLL_SOURCE_ANIMATOR,
+    SCROLL_SOURCE_WHEEL,
   };
 
   enum SCROLLBAR_PART {
@@ -298,6 +299,37 @@ typedef BOOL SC_CALLBACK SciterBehaviorFactory( LPCSTR, HELEMENT, LPElementEvent
     double    delta_v;      // for GESTURE_ROTATE - delta angle (radians) 
                             // for GESTURE_ZOOM - zoom value, is less or greater than 1.0    
   };
+
+  enum EXCHANGE_CMD {
+    X_DRAG_ENTER = 0,       // drag enters the element
+    X_DRAG_LEAVE = 1,       // drag leaves the element  
+    X_DRAG = 2,             // drag over the element
+    X_DROP = 3,             // data dropped on the element  
+    X_PASTE = 4,            // N/A
+    X_DRAG_REQUEST = 5,     // N/A
+    X_DRAG_CANCEL = 6,      // drag cancelled (e.g. by pressing VK_ESCAPE)
+    X_WILL_ACCEPT_DROP = 7, // drop target element shall consume this event in order to receive X_DROP 
+  };
+
+  enum DD_MODES {
+    DD_MODE_NONE = 0, // DROPEFFECT_NONE	( 0 )
+    DD_MODE_COPY = 1, // DROPEFFECT_COPY	( 1 )
+    DD_MODE_MOVE = 2, // DROPEFFECT_MOVE	( 2 )
+    DD_MODE_COPY_OR_MOVE = 3, // DROPEFFECT_COPY	( 1 ) | DROPEFFECT_MOVE	( 2 )
+    DD_MODE_LINK = 4, // DROPEFFECT_LINK	( 4 )
+  };
+  
+  struct EXCHANGE_PARAMS
+  {
+    UINT         cmd;          // EXCHANGE_EVENTS
+    HELEMENT     target;       // target element
+    HELEMENT     source;       // source element (can be null if D&D from external window)
+    POINT        pos;          // position of cursor, element relative
+    POINT        pos_view;     // position of cursor, view relative
+    UINT         mode;         // DD_MODE 
+    SCITER_VALUE data;         // packaged drag data
+  };
+
 
   enum DRAW_EVENTS
   {
@@ -437,6 +469,8 @@ typedef BOOL SC_CALLBACK SciterBehaviorFactory( LPCSTR, HELEMENT, LPElementEvent
       PAGINATION_PAGE    = 0xE1,     // behavior:pager paginated page no, reason -> page no
       PAGINATION_ENDS    = 0xE2,     // behavior:pager end pagination, reason -> total pages
 
+      CUSTOM             = 0xF0,     // event with custom name
+
       FIRST_APPLICATION_EVENT_CODE = 0x100
       // all custom event codes shall be greater
       // than this number. All codes below this will be used
@@ -473,8 +507,10 @@ typedef BOOL SC_CALLBACK SciterBehaviorFactory( LPCSTR, HELEMENT, LPElementEvent
       UINT_PTR reason;     // CLICK_REASON or EDIT_CHANGED_REASON - UI action causing change.
                            // In case of custom event notifications this may be any
                            // application specific value.
-      SCITER_VALUE 
-               data;       // auxiliary data accompanied with the event. E.g. FORM_SUBMIT event is using this field to pass collection of values.
+      SCITER_VALUE data;   // auxiliary data accompanied with the event. E.g. FORM_SUBMIT event is using this field to pass collection of values.
+
+      LPCWSTR  name;       // name of custom event (when cmd == CUSTOM)
+
   } BEHAVIOR_EVENT_PARAMS;
 
   typedef struct TIMER_PARAMS
@@ -656,6 +692,11 @@ typedef BOOL SC_CALLBACK SciterBehaviorFactory( LPCSTR, HELEMENT, LPElementEvent
           return false;                     
         }
 
+      virtual bool handle_exchange(HELEMENT he, EXCHANGE_PARAMS& params)
+        {
+          return false;
+        }
+      
       virtual bool handle_draw   (HELEMENT he, DRAW_PARAMS& params )
         {
           return on_draw(he, params.cmd, params.gfx, params.area );
@@ -760,6 +801,7 @@ typedef BOOL SC_CALLBACK SciterBehaviorFactory( LPCSTR, HELEMENT, LPElementEvent
             // call using tiscript::value's (from the script)
             case HANDLE_TISCRIPT_METHOD_CALL: { TISCRIPT_METHOD_PARAMS* p = (TISCRIPT_METHOD_PARAMS *)prms; return pThis->handle_scripting_call(he, *p ); }
 			      case HANDLE_GESTURE :  { GESTURE_PARAMS *p = (GESTURE_PARAMS *)prms; return pThis->handle_gesture(he, *p ); }
+            case HANDLE_EXCHANGE: { EXCHANGE_PARAMS *p = (EXCHANGE_PARAMS *)prms; return pThis->handle_exchange(he, *p); }
 			      default:
               assert(false);
         }
@@ -822,6 +864,8 @@ typedef BOOL SC_CALLBACK SciterBehaviorFactory( LPCSTR, HELEMENT, LPElementEvent
       assert(r == SCDOM_OK); (void)r;
     }
 
+// NOTE: no 'override' here as BEGIN/END_FUNCTION_MAP can be declared on classes that do not derive from event_handler,
+//       see CHAIN_FUNCTION_MAP 
 #define BEGIN_FUNCTION_MAP \
     virtual bool on_script_call(HELEMENT he, LPCSTR name, UINT argc, const sciter::value* argv, sciter::value& retval) \
     { \

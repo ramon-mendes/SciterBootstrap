@@ -536,10 +536,10 @@ SCDOM_RESULT SCAPI SciterShowPopup(HELEMENT hePopup, HELEMENT heAnchor, UINT pla
 /** Shows block element (DIV) in popup window at given position.
  * \param[in] hePopup \b HELEMENT, element to show as popup
  * \param[in] pos \b POINT, popup element position, relative to origin of Sciter window.
- * \param[in] animate \b BOOL, true if animation is needed.
+ * \param[in] placement \b UINT, meaning of pos - number in 1..9 range. When 7 - pos is top/left corner of the popup
  **/
 
-SCDOM_RESULT SCAPI SciterShowPopupAt(HELEMENT hePopup, POINT pos, BOOL animate);
+SCDOM_RESULT SCAPI SciterShowPopupAt(HELEMENT hePopup, POINT pos, UINT placement);
 
 /** Removes popup window.
  * \param[in] he \b HELEMENT, element which belongs to popup window or popup element itself
@@ -680,7 +680,7 @@ SCDOM_RESULT SCAPI SciterWindowDetachEventHandler( HWINDOW hwndLayout, LPELEMENT
  **/
 
 SCDOM_RESULT SCAPI SciterSendEvent(
-          HELEMENT he, UINT appEventCode, HELEMENT heSource, UINT reason, /*out*/ BOOL* handled);
+          HELEMENT he, UINT appEventCode, HELEMENT heSource, UINT_PTR reason, /*out*/ BOOL* handled);
 
 /** SciterPostEvent - post sinking/bubbling event to the child/parent chain of he element.
  *  Function will return immediately posting event into input queue of the application.
@@ -692,7 +692,7 @@ SCDOM_RESULT SCAPI SciterSendEvent(
 
  **/
 
-SCDOM_RESULT SCAPI SciterPostEvent( HELEMENT he, UINT appEventCode, HELEMENT heSource, UINT reason);
+SCDOM_RESULT SCAPI SciterPostEvent( HELEMENT he, UINT appEventCode, HELEMENT heSource, UINT_PTR reason);
 
 
 /** SciterFireEvent - sends or posts sinking/bubbling event to the child/parent chain of specified element.

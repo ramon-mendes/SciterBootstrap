@@ -132,7 +132,7 @@ typedef struct _ISciterAPI {
   SCDOM_RESULT SCFN( SciterGetElementUID)(HELEMENT he, UINT* puid);
   SCDOM_RESULT SCFN( SciterGetElementByUID)(HWINDOW hwnd, UINT uid, HELEMENT* phe);
   SCDOM_RESULT SCFN( SciterShowPopup)(HELEMENT hePopup, HELEMENT heAnchor, UINT placement);
-  SCDOM_RESULT SCFN( SciterShowPopupAt)(HELEMENT hePopup, POINT pos, BOOL animate);
+  SCDOM_RESULT SCFN( SciterShowPopupAt)(HELEMENT hePopup, POINT pos, UINT placement);
   SCDOM_RESULT SCFN( SciterHidePopup)(HELEMENT he);
   SCDOM_RESULT SCFN( SciterGetElementState)( HELEMENT he, UINT* pstateBits);
   SCDOM_RESULT SCFN( SciterSetElementState)( HELEMENT he, UINT stateBitsToSet, UINT stateBitsToClear, BOOL updateView);
@@ -269,11 +269,7 @@ typedef ISciterAPI* (SCAPI *SciterAPI_ptr)();
 
     EXTERN_C ISciterAPI* SCAPI SciterAPI();
 
-#if defined(__cplusplus) && !defined(PLAIN_API_ONLY)
-    inline ISciterAPI* SAPI( ISciterAPI* ext = NULL ) {
-#else
-    inline ISciterAPI* SAPI(ISciterAPI* ext) {
-#endif
+    inline ISciterAPI* _SAPI(ISciterAPI* ext) {
        static ISciterAPI* _api = NULL;
        if( ext ) _api = ext;
        if( !_api )
@@ -289,7 +285,7 @@ typedef ISciterAPI* (SCAPI *SciterAPI_ptr)();
 
 #elif defined(WINDOWS)
 
-    inline ISciterAPI* SAPI( ISciterAPI* ext = NULL ) {
+    inline ISciterAPI* _SAPI( ISciterAPI* ext ) {
        static ISciterAPI* _api = NULL;
        if( ext ) _api = ext;
        if( !_api )
@@ -316,12 +312,11 @@ typedef ISciterAPI* (SCAPI *SciterAPI_ptr)();
        return _api;
     }
 
-
 #elif defined(OSX)
 
     //typedef ISciterAPI* SCAPI (*SciterAPI_ptr)();
 
-    inline ISciterAPI* SAPI( ISciterAPI* ext = NULL )
+    inline ISciterAPI* _SAPI( ISciterAPI* ext )
     {
         static ISciterAPI* _api = NULL;
         if( ext ) _api = ext;
@@ -373,7 +368,7 @@ typedef ISciterAPI* (SCAPI *SciterAPI_ptr)();
 
     //typedef ISciterAPI* SCAPI (*SciterAPI_ptr)();
 
-    inline ISciterAPI* SAPI( ISciterAPI* ext = NULL )
+    inline ISciterAPI* _SAPI( ISciterAPI* ext )
     {
         static ISciterAPI* _api = NULL;
         if( ext ) _api = ext;
@@ -426,8 +421,12 @@ typedef ISciterAPI* (SCAPI *SciterAPI_ptr)();
         return _api;
     }
 
-
 #endif
+
+  inline ISciterAPI* SAPI() {
+    static ISciterAPI* _api = _SAPI(NULL);
+    return _api;
+  }
 
   inline LPSciterGraphicsAPI gapi()
   {
@@ -519,7 +518,7 @@ typedef ISciterAPI* (SCAPI *SciterAPI_ptr)();
   inline SCDOM_RESULT SCAPI SciterGetElementUID(HELEMENT he, UINT* puid) { return SAPI()->SciterGetElementUID(he,puid); }
   inline SCDOM_RESULT SCAPI SciterGetElementByUID(HWINDOW hwnd, UINT uid, HELEMENT* phe) { return SAPI()->SciterGetElementByUID(hwnd,uid,phe); }
   inline SCDOM_RESULT SCAPI SciterShowPopup(HELEMENT hePopup, HELEMENT heAnchor, UINT placement) { return SAPI()->SciterShowPopup(hePopup,heAnchor,placement); }
-  inline SCDOM_RESULT SCAPI SciterShowPopupAt(HELEMENT hePopup, POINT pos, BOOL animate) { return SAPI()->SciterShowPopupAt(hePopup,pos,animate); }
+  inline SCDOM_RESULT SCAPI SciterShowPopupAt(HELEMENT hePopup, POINT pos, UINT placement) { return SAPI()->SciterShowPopupAt(hePopup,pos,placement); }
   inline SCDOM_RESULT SCAPI SciterHidePopup(HELEMENT he) { return SAPI()->SciterHidePopup(he); }
   inline SCDOM_RESULT SCAPI SciterGetElementState( HELEMENT he, UINT* pstateBits) { return SAPI()->SciterGetElementState(he,pstateBits); }
   inline SCDOM_RESULT SCAPI SciterSetElementState( HELEMENT he, UINT stateBitsToSet, UINT stateBitsToClear, BOOL updateView) { return SAPI()->SciterSetElementState(he,stateBitsToSet,stateBitsToClear,updateView); }
@@ -533,8 +532,8 @@ typedef ISciterAPI* (SCAPI *SciterAPI_ptr)();
   inline SCDOM_RESULT SCAPI SciterAttachEventHandler( HELEMENT he, LPELEMENT_EVENT_PROC pep, LPVOID tag ) { return SAPI()->SciterAttachEventHandler( he,pep,tag ); }
   inline SCDOM_RESULT SCAPI SciterWindowAttachEventHandler( HWINDOW hwndLayout, LPELEMENT_EVENT_PROC pep, LPVOID tag, UINT subscription ) { return SAPI()->SciterWindowAttachEventHandler(hwndLayout,pep,tag,subscription ); }
   inline SCDOM_RESULT SCAPI SciterWindowDetachEventHandler( HWINDOW hwndLayout, LPELEMENT_EVENT_PROC pep, LPVOID tag ) { return SAPI()->SciterWindowDetachEventHandler(hwndLayout,pep,tag ); }
-  inline SCDOM_RESULT SCAPI SciterSendEvent( HELEMENT he, UINT appEventCode, HELEMENT heSource, UINT reason, /*out*/ BOOL* handled) { return SAPI()->SciterSendEvent( he,appEventCode,heSource,reason,handled); }
-  inline SCDOM_RESULT SCAPI SciterPostEvent( HELEMENT he, UINT appEventCode, HELEMENT heSource, UINT reason) { return SAPI()->SciterPostEvent(he,appEventCode,heSource,reason); }
+  inline SCDOM_RESULT SCAPI SciterSendEvent( HELEMENT he, UINT appEventCode, HELEMENT heSource, UINT_PTR reason, /*out*/ BOOL* handled) { return SAPI()->SciterSendEvent( he,appEventCode,heSource,reason,handled); }
+  inline SCDOM_RESULT SCAPI SciterPostEvent( HELEMENT he, UINT appEventCode, HELEMENT heSource, UINT_PTR reason) { return SAPI()->SciterPostEvent(he,appEventCode,heSource,reason); }
   inline SCDOM_RESULT SCAPI SciterFireEvent( const BEHAVIOR_EVENT_PARAMS* evt, BOOL post, BOOL *handled) { return SAPI()->SciterFireEvent( evt, post, handled ); }
   inline SCDOM_RESULT SCAPI SciterCallBehaviorMethod(HELEMENT he, struct METHOD_PARAMS* params) { return SAPI()->SciterCallBehaviorMethod(he,params); }
   inline SCDOM_RESULT SCAPI SciterRequestElementData( HELEMENT he, LPCWSTR url, UINT dataType, HELEMENT initiator ) { return SAPI()->SciterRequestElementData(he,url,dataType,initiator ); }
