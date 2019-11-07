@@ -31,7 +31,7 @@ namespace SciterBootstrap
 				SciterXDef.SCITER_CREATE_WINDOW_FLAGS.SW_ENABLE_DEBUG);
 			wnd.CenterTopLevelWindow();
 			wnd.HideTaskbarIcon();
-			wnd.Title = "Sciter-based desktop TemplateDesktopGadgets";
+			wnd.Title = Window.WND_TITLE;
 			wnd.Icon = Properties.Resources.IconMain;
 
 			// Prepares SciterHost and then load the page
@@ -47,21 +47,14 @@ namespace SciterBootstrap
 			PInvokeUtils.RunMsgLoop();
 
 			HookerInstance.ClearHook();
+
+			FinalizeApp();
 		}
 
-		/*public static void RunHooker()
+		public static void FinalizeApp()
 		{
-			string hookexe = Environment.Is64BitOperatingSystem ? @"\Hook\64\Hooker.exe" : @"\Hook\32\Hooker.exe";
-			hookexe = AppDomain.CurrentDomain.BaseDirectory + hookexe;
-			Debug.Assert(System.IO.File.Exists(hookexe));
-
-			var p = Process.Start(new ProcessStartInfo()
-			{
-				FileName = hookexe,
-				WindowStyle = ProcessWindowStyle.Hidden
-			});
-
-			Debug.Assert(p.HasExited==false);
-		}*/
+			GC.Collect();
+			GC.WaitForPendingFinalizers();
+		}
 	}
 }

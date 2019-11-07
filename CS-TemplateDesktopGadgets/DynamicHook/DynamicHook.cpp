@@ -43,10 +43,20 @@ int HookProc(int nCode, WPARAM wParam, LPARAM lParam)
 				str += L" - ";
 				str += std::to_wstring(msg->wParam);
 				OutputDebugString(str.c_str());
+				
 
-				auto wnd = FindWindow(NULL, L"Sciter-based desktop TemplateDesktopGadgets");
+				#define WND_NAME L"Sciter-based desktop widgets --> ### SciterBootstrap ###"
+
+				auto wnd = FindWindow(NULL, WND_NAME);
 				if (wnd)
+				{
+					OutputDebugString(L"SENT WM_APP + 99 message");
 					SendMessage(wnd, WM_APP + 99, msg->lParam, msg->wParam);
+				}
+				else
+				{
+					OutputDebugString(L"COULDN'T FIND '" WND_NAME "' window");
+				}
 			}
 		}
 

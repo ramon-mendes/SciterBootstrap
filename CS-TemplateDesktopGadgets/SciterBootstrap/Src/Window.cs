@@ -7,15 +7,18 @@ using SciterSharp;
 using SciterSharp.Interop;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using PInvoke;
 
 namespace SciterBootstrap
 {
 	class Window : SciterWindow
 	{
-		static	uint WM_TASKBAR_CREATED = RegisterWindowMessage("TaskbarCreated");
-		const   uint WM_APP = 0x8000;
-		const	uint WM_DESKTOP_CHANGED = WM_APP + 99;
-		const	uint WM_ENDSESSION = 22;
+		static	int WM_TASKBAR_CREATED = User32.RegisterWindowMessage("TaskbarCreated");
+
+		public const string WND_TITLE = "Sciter-based desktop widgets --> ### SciterBootstrap ###";
+		const uint WM_APP = 0x8000;
+		const uint WM_DESKTOP_CHANGED = WM_APP + 99;
+
 		const	uint WM_CLOSE = 16;
 		const	uint WM_NCLBUTTONDOWN = 161;
 		const	int HTCAPTION = 2;
@@ -28,72 +31,70 @@ namespace SciterBootstrap
 				return true;
 			}
 
-			switch(msg)
+			if(msg == WM_DESKTOP_CHANGED)
 			{
-				case WM_DESKTOP_CHANGED:
-					Debug.WriteLine($"{wParam.ToInt64()} {lParam.ToInt64()}");
-
-					if(wParam.ToInt32()==0)
-					{
-						SetWindowPos(_hwnd, new IntPtr((int) SetWindowPosWindow.HWND_BOTTOM), 0, 0, 0, 0,
-							SetWindowPosFlags.SWP_NOSIZE | SetWindowPosFlags.SWP_NOMOVE);
-						SetWindowPos(_hwnd, new IntPtr((int) SetWindowPosWindow.HWND_TOPMOST), 0, 0, 0, 0,
-							SetWindowPosFlags.SWP_NOSIZE | SetWindowPosFlags.SWP_NOMOVE);
-						Show();
-
-						Debug.WriteLine("WM_DESKTOP_CHANGED show");
-					}
-					else
-					{
-						SetWindowPos(_hwnd, new IntPtr((int) SetWindowPosWindow.HWND_NOTOPMOST), 0, 0, 0, 0,
-							SetWindowPosFlags.SWP_NOSIZE | SetWindowPosFlags.SWP_NOMOVE | SetWindowPosFlags.SWP_NOACTIVATE | SetWindowPosFlags.SWP_NOSENDCHANGING);
-						SetWindowPos(_hwnd, new IntPtr((int) SetWindowPosWindow.HWND_BOTTOM), 0, 0, 0, 0,
-							SetWindowPosFlags.SWP_NOSIZE | SetWindowPosFlags.SWP_NOMOVE | SetWindowPosFlags.SWP_NOACTIVATE | SetWindowPosFlags.SWP_NOSENDCHANGING);
-						Show();
-
-						Debug.WriteLine("WM_DESKTOP_CHANGED hide");
-					}
-					return true;
-
-				case WM_ENDSESSION:
-					// system is shuting down, close app
-					SendMessageW(_hwnd, WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
-					PostQuitMessage(0);
-					return true;
+				if(wParam.ToInt32() == 0)
+				{
+					SetDesktopTopmost(true);
+					Debug.WriteLine("WM_DESKTOP_CHANGED show " + DateTime.Now);
+				}
+				else
+				{
+					SetDesktopTopmost(false);
+					Debug.WriteLine("WM_DESKTOP_CHANGED hide " + DateTime.Now);
+				}
+				return true;
 			}
+
+			if(msg == (uint)User32.WindowMessage.WM_ENDSESSION)
+			{
+				// system is shuting down, close app
+				User32.SendMessage(_hwnd, User32.WindowMessage.WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
+				User32.PostQuitMessage(0);
+				return true;
+			}
+
 			return false;
+		}
+
+		public void SetDesktopTopmost(bool top)
+		{
+			if(top)
+			{
+				SetWindowPos(_hwnd, new IntPtr((int)SetWindowPosWindow.HWND_BOTTOM), 0, 0, 0, 0,
+					SetWindowPosFlags.SWP_NOSIZE | SetWindowPosFlags.SWP_NOMOVE | SetWindowPosFlags.SWP_NOACTIVATE);
+				SetWindowPos(_hwnd, new IntPtr((int)SetWindowPosWindow.HWND_TOPMOST), 0, 0, 0, 0,
+					SetWindowPosFlags.SWP_NOSIZE | SetWindowPosFlags.SWP_NOMOVE | SetWindowPosFlags.SWP_NOACTIVATE);
+			}
+			else
+			{
+				SetWindowPos(_hwnd, new IntPtr((int)SetWindowPosWindow.HWND_NOTOPMOST), 0, 0, 0, 0,
+							SetWindowPosFlags.SWP_NOSIZE | SetWindowPosFlags.SWP_NOMOVE | SetWindowPosFlags.SWP_NOACTIVATE | SetWindowPosFlags.SWP_NOSENDCHANGING);
+				SetWindowPos(_hwnd, new IntPtr((int)SetWindowPosWindow.HWND_BOTTOM), 0, 0, 0, 0,
+					SetWindowPosFlags.SWP_NOSIZE | SetWindowPosFlags.SWP_NOMOVE | SetWindowPosFlags.SWP_NOACTIVATE | SetWindowPosFlags.SWP_NOSENDCHANGING);
+			}
 		}
 
 		public void HideTaskbarIcon()
 		{
-			const int GWL_EXSTYLE = -20;
+			new Win32Hwnd(Handle).ModifyStyleEx(User32.SetWindowLongFlags.WS_EX_APPWINDOW, User32.SetWindowLongFlags.WS_EX_TOOLWINDOW);
+			return;
+
+			/*const int GWL_EXSTYLE = -20;
 			const int WS_EX_TOOLWINDOW = 0x00000080;
 			const int WS_EX_LAYERED = 0x00080000;
 
-			SetWindowLong(_hwnd, GWL_EXSTYLE, WS_EX_TOOLWINDOW | WS_EX_LAYERED);
+			SetWindowLong(_hwnd, GWL_EXSTYLE, WS_EX_TOOLWINDOW | WS_EX_LAYERED);*/
 		}
+
 		public void EmulateMoveWnd()
 		{
-			SendMessageW(_hwnd, WM_NCLBUTTONDOWN, new IntPtr(HTCAPTION), IntPtr.Zero);
+			User32.SendMessage(_hwnd, User32.WindowMessage.WM_NCLBUTTONDOWN, new IntPtr(HTCAPTION), IntPtr.Zero);
 		}
 
 		#region PInvoke
-		[DllImport("user32.dll", SetLastError=true, CharSet=CharSet.Auto)]
-		static extern uint RegisterWindowMessage(string lpString);
-
 		[DllImport("user32.dll")]
 		static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, SetWindowPosFlags uFlags);
-
-		[DllImport("user32.dll")]
-		static extern IntPtr SendMessageW(IntPtr hwnd, uint msg, IntPtr wParam, IntPtr lParam);
-
-		[DllImport("user32.dll")]
-		static extern void PostQuitMessage(int nExitCode);
-		
-		[DllImport("user32.dll")]
-		static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-
-
 
 		enum SetWindowPosWindow : int
 		{
