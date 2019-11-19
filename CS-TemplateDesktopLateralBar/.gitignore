@@ -1,0 +1,20 @@
+ArchiveResource.cs
+
+# Garbage
+.DS_Store
+**/Debug
+**/Release
+obj/
+packages/
+.vs/
+*.sdf
+*.db
+*.pdb
+*.idb
+*.tlog
+*.obj
+*.exp
+*.lib
+*.ilk
+*.pch
+*.log

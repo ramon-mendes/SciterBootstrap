@@ -1,0 +1,47 @@
+<!-- OmniView -->
+<html>
+<head>
+	<style>
+		html { background: transparent; }
+		body
+		{
+			margin: 0;
+			background: #202020;
+		}
+
+		header
+		{
+			flow: horizontal;
+			background: #333333;
+			height: 40px;
+		}
+
+		.ml-s { margin-left: *; }
+		.btn { height: *; width: 40px; cursor: pointer; flow: horizontal; vertical-align: middle; horizontal-align: middle; }
+		.btn:hover { background: #3F3F41; }
+		img { size: 14px; fill: white; }
+	</style>
+
+	<script type="text/tiscript">
+		const WIDTH = 350;
+		var (width, height) = view.screenBox(#workarea, #dimension);
+		view.move(width - WIDTH, 0, WIDTH, height);
+
+		self.onKey = function(evt) {
+			if(evt.keyCode==Event.VK_ESCAPE)
+				view.close();
+		};
+
+		self#btn-close.onClick = function() {
+			view.close();
+		};
+	</script>
+</head>
+<body>
+	<header>
+		<div class="btn ml-s" #btn-close>
+			<img src="android-close.svg" />
+		</div>
+	</header>
+</body>
+</html>
