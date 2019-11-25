@@ -31,9 +31,9 @@ namespace SciterBootstrap
 
 		public BaseHost()
 		{
-		#if !DEBUG
+#if !DEBUG
 			_archive.Open(SciterSharpAppResource.ArchiveResource.resources);
-		#endif
+#endif
 		}
 
 		public void Setup(SciterWindow wnd)
