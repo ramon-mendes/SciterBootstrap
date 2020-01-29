@@ -1,0 +1,11 @@
+// this TIScript file contains listener for keystroke to do usefull things -- you can delete it if you want
+self.on("keydown", function(evt) {
+	if(evt.keyCode == Event.VK_F5)
+		self.load(self.url());
+
+	if(evt.keyCode == Event.VK_F12)
+		view.connectToInspector();
+
+	if(evt.keyCode == Event.VK_Q && evt.ctrlKey)
+		view.close();
+});

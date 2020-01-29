@@ -32,7 +32,7 @@ namespace SciterBootstrap
 		public BaseHost()
 		{
 #if !DEBUG
-			_archive.Open(SciterSharpAppResource.ArchiveResource.resources);
+			_archive.Open(SciterAppResource.ArchiveResource.resources);
 #endif
 		}
 

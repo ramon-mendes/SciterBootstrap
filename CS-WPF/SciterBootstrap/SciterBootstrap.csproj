@@ -35,8 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SciterSharpWindows, Version=2.0.85.0, Culture=neutral, PublicKeyToken=917100d643775a9e">
-      <HintPath>..\packages\SciterSharpWindows.2.0.85\lib\net45\SciterSharpWindows.dll</HintPath>
+    <Reference Include="SciterSharpWindows, Version=2.0.87.0, Culture=neutral, PublicKeyToken=917100d643775a9e">
+      <HintPath>..\packages\SciterSharpWindows.2.0.87\lib\net45\SciterSharpWindows.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

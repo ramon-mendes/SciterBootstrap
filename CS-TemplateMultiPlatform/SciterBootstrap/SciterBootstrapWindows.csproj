@@ -110,6 +110,7 @@
     <None Include="res\index.html" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\keyboard.tis" />
     <Content Include="sciter.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
